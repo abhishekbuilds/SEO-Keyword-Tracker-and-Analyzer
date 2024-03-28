@@ -51,13 +51,13 @@ The services will be available at `http://127.0.0.1:5000`.
     {
         "url": "http://fullerton.edu/",
         "patterns": ["csu", "fullerton"],
-        "algorithms": ["naiveStringMatching", "kmpAlgorithm"]
+        "algorithms": ["NaiveStringMatching", "KmpAlgorithm"]
     }
   ```
 
 #### Response
 
-- **patterns (object)**: An object where each key is a pattern and its value is an object of algorithm names and their corresponding count of occurrences.
+- **patterns (object)**: An object where each key is a algorithm and its value is an object of patterns names and their corresponding count of occurrences.
 - **timeTaken (object)**: An object where each key is an algorithm name and its value is the time taken to complete the search in seconds.
 - **Response**:
   ```json

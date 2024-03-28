@@ -17,11 +17,11 @@ def findPatterns(scraped_data, patterns, algorithmselected):
     pattern_frequencies = {}
 
     algorithm_map = {
-        "naiveStringMatching": (NaiveStringMatching, "NaiveString"),
-        "kmpAlgorithm": (KMPAlgo, "KMP"),
-        "rabinKarp": (RabinKarpAlgo, "RabinKarb"),
-        "suffixArray": (SuffixArray, "SuffixArray"),
-        "suffixTree": (SuffixTree, "SuffixTree")
+        "NaiveStringMatching": (NaiveStringMatching, "NaiveString"),
+        "KmpAlgorithm": (KMPAlgo, "KMP"),
+        "RabinKarp": (RabinKarpAlgo, "RabinKarb"),
+        "SuffixArray": (SuffixArray, "SuffixArray"),
+        "SuffixTree": (SuffixTree, "SuffixTree")
     }
 
     for key, (algo_class, algo_name) in algorithm_map.items():
