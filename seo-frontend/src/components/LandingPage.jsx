@@ -5,17 +5,17 @@ import { useNavigate } from 'react-router-dom';
 const algorithms = [
   'Naive String',
   'Rabin Karp',
-  'KMP',
-  'Boyer Moore',
-  'Aho-Corasick',
+  'KMP Algo',
+  'Suffix Array',
+  'Suffix Tree',
 ];
 
 const algorithmRequestMap = {
   'Naive String': 'NaiveStringMatching',
   'Rabin Karp': 'RabinKarpAlgo',
-  'KMP': 'KnuthMorrisPrattAlgorithm',
-  'Boyer Moore': 'BoyerMooreAlgorithm',
-  'Aho-Corasick': 'AhoCorasickAlgorithm',
+  'KMP Algo': 'KMPAlgo',
+  'Suffix Array': 'SuffixArray',
+  'Suffix Tree': 'SuffixTree',
 };
 
 const URLValidator = (url) => {
@@ -36,7 +36,7 @@ function LandingPage() {
   const [selectedAlgorithms, setSelectedAlgorithms] = useState(new Set());
   const [selectAll, setSelectAll] = useState(false);
   const [isLoading, setIsLoading] = useState(false); // Loading state
-  const navigate =  useNavigate();// For navigation after loading
+  const navigate = useNavigate(); // For navigation after loading
 
   const handleUrlChange = (event) => {
     setUrl(event.target.value);
@@ -73,14 +73,16 @@ function LandingPage() {
 
     setIsLoading(true); // Start loading
 
-     // Transform the selected algorithms to their corresponding request values
-     const transformedAlgorithms = Array.from(selectedAlgorithms).map(algorithm => algorithmRequestMap[algorithm]);
+    // Transform the selected algorithms to their corresponding request values
+    const transformedAlgorithms = Array.from(selectedAlgorithms).map(
+      (algorithm) => algorithmRequestMap[algorithm]
+    );
 
-     // Prepare data for Axios request
-     const requestData = {
-       url: url,
-       algorithms: transformedAlgorithms,
-     };
+    // Prepare data for Axios request
+    const requestData = {
+      url: url,
+      algorithms: transformedAlgorithms,
+    };
 
     // Axios request (Replace 'your-endpoint-url' with your actual endpoint URL)
     axios
@@ -92,11 +94,11 @@ function LandingPage() {
         // Handle response here
       })
       .catch((error) => {
-        setIsLoading(false); 
+        setIsLoading(false);
         console.error('There was an error!', error);
       });
   };
-  
+
   if (isLoading) {
     return <div>Loading...</div>; // Simple loading screen
   }
